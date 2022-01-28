@@ -24,11 +24,28 @@
                 </div>
             </div>
             <div class="address">
-                ADDRESS
+                Kantor Pemasaran
+                <br>
+                <div class="text-footer">
+                    Jl. Apa saja, No. 69<br>
+                    Tegal Timur, Kota Tegal<br>
+                    <br>
+                    Telp. 0211 - 0277 - 082
+                </div>
             </div>
             <div class="sitemap">
-                SITEMAP
+                Sitemap
+                <div class="text-footer">
+                    Type Rumah<br>
+                    Pencarian<br>
+                    Blog<br>
+                    Kontak Kami<br>
+                </div>
             </div>
+        </div>
+        <div class="copyright">
+            Major House Suite &copy; 2022<br>
+            UI By Wildan Rizky
         </div> 
     </div>
 </template>
@@ -128,6 +145,7 @@
     }
     .footer .info-container .social-media, .address, .sitemap {
         flex: 1;
+        color: var(--blue-light-2)
     }
     .footer .info-container .social-media .btn-social-media-container {
         display: flex;
@@ -152,5 +170,28 @@
         background: linear-gradient(319deg, rgba(16, 125, 232, 1) 0%, rgba(103, 179, 255, 1) 100%);
         color: var(--white);
         box-shadow: 0 0 15px var(--white);
+    }
+    .footer .info-container .text-footer {
+        font-weight: 18px;
+        font-weight: 600;
+        margin-top: 10px;
+        color: var(--white);
+    }
+    .footer .copyright {
+        position: absolute;
+        bottom: 2em;
+        color: var(--blue-light-2);
+        font-size: 12px;
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+        .footer {
+            height: auto;
+            padding: 0 0 10em 0;
+        }
+        .footer .info-container {
+            flex-direction: column;
+            row-gap: 2em;
+        }
     }
 </style>
