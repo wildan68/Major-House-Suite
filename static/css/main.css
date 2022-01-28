@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --blue: #107DE8;
+    --blue-dark: #0f68c2;
+    --blue-light: #EDF6FF;
+    --green: #02CE56;
+    --green-light: #E5FFEE;
+    --white: #FFFFFF;
+    --white-light: #F9F9F9;
+    --black: #2F3542;
+    --black-light: #6B6B6B;
+    --orange: #FFA502;
+    --orange-light: #FFF1C3;
+    --gray: #E5E5E5;
+}
+
+* {
+    font-family: 'Exo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    outline: none;
+}
+
+nav {
+    transition: all 0.5s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+.mainapp {
+    display: flex;
+    justify-content: center;
+}
+
+.mainapp .wrapper {
+    width: 1366px;
+}
+
+@media (max-width: 1366px) {
+    .mainapp .wrapper {
+        width: 95%;
+    }
+}

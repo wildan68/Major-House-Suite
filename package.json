@@ -1,0 +1,29 @@
+{
+    "name": "mhsuites",
+    "version": "1.0.0",
+    "description": "Major Home Suites",
+    "author": "wildan",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NUXT_HOST=0.0.0.0 NUXT_PORT=3000 nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+        "precommit": "npm run lint"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.7.2",
+        "nuxt": "^2.0.0",
+        "swiper": "^6.8.4",
+        "vue-awesome-swiper": "^3.1.3"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.1",
+        "cross-env": "^7.0.3",
+        "eslint": "^4.19.1",
+        "eslint-friendly-formatter": "^4.0.1",
+        "eslint-loader": "^2.1.1",
+        "eslint-plugin-vue": "^4.0.0"
+    }
+}
