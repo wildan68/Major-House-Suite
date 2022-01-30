@@ -20,7 +20,8 @@ module.exports = {
      */
     loading: { color: '#3B8070' },
     plugins: [
-        { src: './plugins/swiper.js', ssr: false }
+        { src: './plugins/swiper.js', ssr: false },
+        { src: './plugins/config.js' }
     ],
     css: ['swiper/swiper-bundle.min.css'],
     /*

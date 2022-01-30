@@ -21,7 +21,7 @@
         font-weight: 600;
         border-radius: 8px;
         display: flex;
-        column-gap: 20px;
+        gap: 20px;
         align-items: center;
         transition: all 0.5s ease;
     }
@@ -37,6 +37,15 @@
     
     .btn-blue:hover {
         background-color: var(--blue-dark);
+    }
+    
+    .btn-white {
+        background-color: var(--white);
+        color: var(--blue);
+    }
+    
+    .btn-white:hover {
+        background-color: var(--white-light);
     }
     
     .btn-blue-light {

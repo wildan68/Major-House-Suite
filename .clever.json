@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_867935de-3317-47d9-8102-9569985152da",
+      "org_id": "user_b4e19cd2-c4c4-4a10-8052-7b21db309dc9",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_867935de-3317-47d9-8102-9569985152da.git",
+      "name": "mhs",
+      "alias": "mhs"
+    }
+  ]
+}

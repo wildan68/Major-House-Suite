@@ -13,8 +13,11 @@ export default {
         menuItems: Array,
     },
     methods: {
-        to(context) {
+        to(context) {          
             document.getElementById(context).scrollIntoView();
+            if (this.$conf.isMobile) {
+                this.$root.$emit('navClose')
+            }
         }
     }
 }
@@ -38,5 +41,15 @@ export default {
     .main-nav-menu .nav-menu-items:hover {
         background-color: var(--blue-light);
         color: var(--blue);
+    }
+    @media (max-width: 768px) {
+        .main-nav-menu {
+            flex-direction: column;
+            row-gap: 2em;
+        }
+        .main-nav-menu .nav-menu-items {
+            color: var(--white);
+            width: 200px;
+        }
     }
 </style>
