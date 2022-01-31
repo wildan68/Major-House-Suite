@@ -5,7 +5,7 @@
         </div>
         <div class="nav-menu show" ref="navMenu">
             <NavMenu :menuItems="menuItems"/>
-            <Button label="Login" icon="bi-arrow-right-square-fill" :color="$conf.isMobile ? 'btn-white' : 'btn-blue'" class="btn-login"/>
+            <Button label="Login" icon="bi-arrow-right-square-fill" :color="$conf.isMobile ? 'btn-white' : 'btn-blue'" class="btn-login" to="admin/login"/>
             <button class="btn-close" @click.prevent="onClose">
                 <i class="bi bi-x-lg"></i>
             </button>

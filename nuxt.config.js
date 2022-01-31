@@ -21,7 +21,8 @@ module.exports = {
     loading: { color: '#3B8070' },
     plugins: [
         { src: './plugins/swiper.js', ssr: false },
-        { src: './plugins/config.js' }
+        { src: './plugins/config.js' },
+        { src: './plugins/toast.js', ssr: false },
     ],
     css: ['swiper/swiper-bundle.min.css'],
     /*
@@ -40,6 +41,9 @@ module.exports = {
                     exclude: /(node_modules)/
                 })
             }
-        }
+        },
+        extractCSS: {
+            allChunks: true
+        },
     }
 }

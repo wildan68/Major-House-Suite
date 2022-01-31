@@ -1,5 +1,5 @@
 <template>
-    <button :class="'btn ' + color">
+    <button :class="'btn ' + color" @click.prevent="to != null ? $router.push(to) : 0">
         {{ label }} <i :class="'bi '+ icon"></i>
     </button>
 </template>
@@ -11,6 +11,7 @@
             label: String,
             icon: String,
             color: String,
+            to: String,
         }
     }
 </script>

@@ -7,7 +7,7 @@
                 <Button color="btn-blue-light" icon="bi-arrow-right-circle-fill" label="Lihat semua variant"/>
             </div>
         </div>
-        <TypeRumahSlide/>
+        <TypeRumahSlide :items="items"/>
     </div>
 </template>
 
@@ -24,6 +24,32 @@ export default {
         Title,
         TypeRumahSlide,
         Button,
+    },
+    data() {
+        return {
+            items: [{
+                name: 'Shinewood House',
+                img: 'home2.jpg',
+                price: '1.3 M',
+                bed: 2,
+                bath: 2,
+                land: '8 x 20 m'
+            }, {
+                name: 'Voulenter House',
+                img: 'home3.jpg',
+                price: '2.5 M',
+                bed: 5,
+                bath: 3,
+                land: '12 x 25 m'
+            }, {
+                name: 'Trivia House',
+                img: 'home4.jpg',
+                price: '1.8 M',
+                bed: 2,
+                bath: 3,
+                land: '9 x 23 m'
+            }, ]
+        }
     }
 }
 </script>

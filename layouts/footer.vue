@@ -12,10 +12,10 @@
             <div class="social-media">
                 Ikuti Kami
                 <div class="btn-social-media-container">
-                    <a href="#" class="btn-social-media">
+                    <a href="https://facebook.com/wildannaxviking12" target="_blank" class="btn-social-media">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="#" class="btn-social-media">
+                    <a href="https://instagram.com/wldan.rzky_" target="_blank" class="btn-social-media">
                         <i class="bi bi-instagram"></i>
                     </a>
                     <a href="#" class="btn-social-media">

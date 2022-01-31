@@ -58,8 +58,8 @@
             },
             populer() {
                 this.items[0].tempat = 'Jakarta'
-                this.items[0].type = 'Shinewood House'
-                this.items[0].harga = 'Rp 1.3 M'
+                this.items[0].type = 'Voulenter House'
+                this.items[0].harga = 'Rp 2.5 M'
                 this.items[0].thumb = 'home3.jpg'
                 this.newest_pointer = 1
                 this.$refs.thumb.style.display = 'none'

@@ -1,36 +1,36 @@
 <template>
   <div v-swiper:mySwiper="swiper" class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="i in 5" :key="i">
+      <div class="swiper-slide" v-for="(i, index) in items" :key="index">
         <div class="swiper-item">
-            <div class="thumb" @mouseover="hoverThumb(i-1)" @mouseout="blurThumb(i-1)">
+            <div class="thumb" @mouseover="hoverThumb(index)" @mouseout="blurThumb(index)">
                 <div class="overlay-thumb" ref="overlay_thumb">
                     <Button label="Lihat detail" icon="bi-eye-fill" color="btn-blue-light"/>
                 </div>
-                <div class="price-box">Rp 1.5 M</div>
-                <img src="@/assets/img/home2.jpg" ref="thumb"/>
+                <div class="price-box">Rp {{ i.price }}</div>
+                <img :src="'img/'+i.img" ref="thumb"/>
             </div>
             <div class="title-items">
-                TEST {{ i }}
+                {{ i.name }}
             </div>
             <div class="info-items">
                 <div class="info-item-list">
                     <span class="ico">
                         <img src="@/assets/img/svg/bed.svg"/>
                     </span>
-                    2 Kamar Tidur
+                    {{ i.bed }} Kamar Tidur
                 </div>
                 <div class="info-item-list">
                     <span class="ico">
                         <img src="@/assets/img/svg/bath.svg"/>
                     </span>
-                    2 Kamar Mandi
+                    {{ i.bath }} Kamar Mandi
                 </div>
                 <div class="info-item-list">
                     <span class="ico">
                         <img src="@/assets/img/svg/floor.svg"/>
                     </span>
-                    Lt 8 x 20 m
+                    Lt {{ i.land }}
                 </div>
             </div>
         </div>
@@ -43,6 +43,9 @@
     import Button from '@/components/button'
     export default {
         name: 'type_rumah_slide_components',
+        props: {
+            items: Array,
+        },
         data() {
             return {
                 swiper: {
