@@ -2,6 +2,9 @@ module.exports = {
     /*
      ** Headers of the page
      */
+    modules: [
+        '@nuxtjs/proxy',
+    ],
     head: {
         title: 'mhsuites',
         meta: [
@@ -23,6 +26,7 @@ module.exports = {
         { src: './plugins/swiper.js', ssr: false },
         { src: './plugins/config.js' },
         { src: './plugins/toast.js', ssr: false },
+        { src: './plugins/cloudinary.js', ssr: false },
     ],
     css: ['swiper/swiper-bundle.min.css'],
     /*
@@ -42,6 +46,19 @@ module.exports = {
                 })
             }
         },
+        //extractCSS: true,
+        /*optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    styles: {
+                        name: 'styles',
+                        test: /\.(css|vue)$/,
+                        chunks: 'all',
+                        enforce: true
+                    }
+                }
+            }
+        }*/
         extractCSS: {
             allChunks: true
         },

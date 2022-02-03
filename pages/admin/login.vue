@@ -2,17 +2,17 @@
   <div class="loginapp">
     <div class="loginbox">
       <div class="titlebox">
-        Admin Login
+        MHS CMS
       </div>
-      <form @submit.prevent="login">
+      <form @submit.prevent="login(username, password)">
         <div class="group">
-          <input type="text" naem="username" required>
+          <input type="text" name="username" required @input="username = $event.target.value" autocomplete="off">
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Username</label>
         </div>
         <div class="group">
-          <input type="text" naem="password" required>
+          <input type="password" name="password" required @input="password = $event.target.value" autocomplete="off">
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Password</label>
@@ -21,19 +21,63 @@
             Masuk
         </button>
       </form>
+      <div class="info-login">
+          Untuk demo login<br>
+          <br>
+          Username : <b>admin</b><br>
+          Password : <b>admin</b>
+      </div>
     </div>
     <nuxt-link to="/" class="backHome"><i class="bi bi-arrow-left"></i> Kembali</nuxt-link>
   </div>
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: 'login_page',
-        methods: {
-            login() {
-                this.$toast.warning("Belum bisa login ya ges ya")
+        data() {
+            return {
+                username: null,
+                password: null,
             }
         },
+        methods: {
+            async login(u, p) {
+                await axios
+                    .post(`${this.$conf.url_api}?func=login`, {
+                        username: u,
+                        password: p,
+                    })
+                    .then(response => {
+                        this.$conf.dataAdmin = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                    .finally(() => {
+                        if (this.$conf.dataAdmin.status != 0) {
+                            localStorage.setItem('username', u)
+                            localStorage.setItem('password', p)
+                            this.$router.push('/admin')
+                        }
+                        else {
+                            this.$toast.warning("Gagal Masuk!")
+                        }
+                    })
+            }
+        },
+        async mounted() {
+            if (localStorage.getItem('username') != null && localStorage.getItem('password') != null) {
+                this.login(localStorage.getItem('username'), localStorage.getItem('password'))
+            }
+        },
+        head() {
+            return {
+                title: 'Admin Login'
+            }
+        }
     }
 </script>
 
@@ -62,7 +106,7 @@
     
     .loginbox {
         width: 30%;
-        height: 50%;
+        height: auto;
         background-color: var(--white);
         border-radius: 22px;
         padding: 3em 2em 2em 2em;
@@ -139,11 +183,17 @@
         background: rgb(16, 125, 232);
         background: linear-gradient(319deg, rgba(16, 125, 232, 1) 0%, rgba(103, 179, 255, 1) 100%);
     }
-    
+    .loginbox .info-login {
+        background-color: var(--blue-light);
+        padding: 1em 2em 1em 2em;
+        margin-top: 20px;
+        color: var(--blue);
+        border-radius: 8px;
+    }
     @media (max-width: 768px) {
         .loginbox {
             width: 80%;
-            height: 25em;
+            height: 30em;
         }
     }
 </style>
