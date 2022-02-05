@@ -22,7 +22,7 @@
           <td>Lt {{ data.land }}</td>
           <td id="aksi">
             <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
-            <button class="btn btn-red"><i class="fi fi-sr-trash"></i></button>
+            <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')" class="btn btn-red-delete"><i class="fi fi-sr-trash"></i></button>
           </td>
         </tr>
       </table>
@@ -247,12 +247,12 @@
         background-color: var(--blue-dark);
     }
     
-    .listrumah .btn.btn-red {
+    .listrumah .btn.btn-red-delete {
         background-color: var(--red);
         color: var(--white);
     }
     
-    .listrumah .btn.btn-red:hover {
+    .listrumah .btn.btn-red-delete:hover {
         background-color: var(--red-dark);
     }
     
