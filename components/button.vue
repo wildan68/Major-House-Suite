@@ -18,7 +18,7 @@
 
 <style scoped>
     .btn {
-        padding: 0.5em 1.5em 0.5em 1.5em;
+        padding: 1em 1.5em 1em 1.5em;
         font-weight: 600;
         border-radius: 8px;
         display: flex;
@@ -59,7 +59,15 @@
         background: linear-gradient(319deg, rgba(16, 125, 232, 1) 0%, rgba(103, 179, 255, 1) 100%);
         color: var(--white);
     }
+
+    .btn-red {
+        background-color: var(--red);
+        color: var(--white);
+    }
     
+    .btn-red:hover {
+        background-color: var(--red-dark);
+    }
     @media (max-width: 768px) {
         .btn {
             font-size: 12px;

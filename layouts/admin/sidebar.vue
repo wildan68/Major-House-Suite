@@ -85,6 +85,7 @@ export default {
         display: flex;
         flex-direction: column;
         row-gap: 1em;
+        z-index: 5;
     }
     .sidebar-admin.show {
         animation: showSidebar 0.5s ease;

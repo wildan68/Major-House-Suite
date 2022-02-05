@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
 :root {
     --blue: #107DE8;
     --blue-light-2: #87c2fd;
@@ -16,6 +19,8 @@
     --orange: #FFA502;
     --orange-light: #FFF1C3;
     --gray: #E5E5E5;
+    --red: #e74c3c;
+    --red-dark: #c0392b;
 }
 
 * {
@@ -63,8 +68,7 @@ a {
 }
 
 .mainapp-admin .wrapper-admin {
-    width: auto;
-    display: flex;
+    display: block;
 }
 
 .group {

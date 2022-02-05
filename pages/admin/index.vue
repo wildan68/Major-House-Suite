@@ -5,7 +5,7 @@
                 <i :class="sidebar ? 'fi fi-br-caret-left' : 'fi fi-br-caret-right'"></i>
             </button>
             <Sidebar v-if="sidebar"/>
-            <div class="content-admin" :style="sidebar ? 'margin-left: 15em; width: 500px' : 'margin-left: 0'">
+            <div class="content-admin" ref="sidebar">
                 <!-- Main Menu -->
                 <Dashboard v-if="!$route.query.f"/>
                 <AddRumah v-else-if="$route.query.f == 'add_rumah'"/>
@@ -51,12 +51,16 @@
                     console.log(this.$refs)
                     this.sidebar = false
                     this.$refs.toggleSidebar.style.left = '0'
+                    this.$refs.sidebar.style.marginLeft = '0'
+                    this.$refs.sidebar.style.width = 'auto'
                 }
                 else {
                     this.sidebar = true
                     this.$refs.toggleSidebar.style.left = '8em'
+                    this.$refs.sidebar.style.marginLeft = '15em'
+                    this.$refs.sidebar.style.width = '768px'
                 }
-            }
+            },
         },
         async mounted() {
             if (localStorage.username == null && localStorage.password == null) {
@@ -101,7 +105,7 @@
 <style scoped>
     .content-admin {
         padding: 5em 2em 0 2em;
-        overflow: hidden;
+        margin-left: 15em;
     }
     .toggle-sidebar {
         position: absolute;
@@ -113,5 +117,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    @media (max-width: 768px) {
+        .content-admin {
+            margin-left: 0;
+        }
     }
 </style>
