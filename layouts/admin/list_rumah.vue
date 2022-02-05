@@ -22,7 +22,7 @@
           <td>Lt {{ data.land }}</td>
           <td id="aksi">
             <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
-            <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')" class="btn btn-red"><i class="fi fi-sr-trash"></i></button>
+            <button class="btn btn-red"><i class="fi fi-sr-trash"></i></button>
           </td>
         </tr>
       </table>
