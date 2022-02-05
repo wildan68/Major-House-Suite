@@ -12,6 +12,7 @@
                 <!-- Menu Akun -->
                 <ChangePassword v-else-if="$route.query.f == 'change_password'"/>
                 <Configuration v-else-if="$route.query.f == 'configuration'"/>
+                <ListRumah v-else-if="$route.query.f == 'list_rumah'"/>
                 <div v-else>
                     <h3>Halaman Tidak Ditemukan!</h3>
                 </div>
@@ -27,6 +28,7 @@
     import AddRumah from '@/layouts/admin/add_rumah'
     import ChangePassword from '@/layouts/admin/change_password'
     import Configuration from '@/layouts/admin/configuration'
+    import ListRumah from '@/layouts/admin/list_rumah'
 
     export default {
         name: 'index_admin',
@@ -36,6 +38,7 @@
             AddRumah,
             ChangePassword,
             Configuration,
+            ListRumah,
         },
         data() {
             return {
