@@ -78,9 +78,9 @@ a {
 
 input {
     font-size: 14px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 10px 35px;
     display: block;
-    width: 300px;
+    width: 250px;
     border: none;
     border-bottom: 1px solid #757575;
 }
@@ -98,7 +98,7 @@ label {
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 5px;
+    left: 35px;
     top: 10px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
@@ -129,7 +129,7 @@ input:valid~label {
     content: '';
     height: 2px;
     width: 0;
-    bottom: 1px;
+    bottom: 0px;
     position: absolute;
     background: var(--blue);
     transition: 0.2s ease all;
@@ -164,6 +164,13 @@ input:focus~.bar:after {
     left: 0;
     pointer-events: none;
     opacity: 0.5;
+}
+
+.group .icon {
+    position: absolute;
+    left: 10px;
+    top: 25%;
+    color: var(--black-light);
 }
 
 

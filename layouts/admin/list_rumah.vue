@@ -2,79 +2,96 @@
   <div class="listrumah">
     <h3>Menampilkan Data Semua Rumah</h3>
     <br>
-    <div class="data-container" v-if="dataRumah != null">
-      <table>
-        <tr>
-          <th id="no">No</th>
-          <th id="type">Type Rumah <i class="fi fi-rs-apps-sort"></i></th>
-          <th id="price">Harga Rumah</th>
-          <th id="spec">Kamar Tidur</th>
-          <th id="spec">Kamar Mandi</th>
-          <th id="spec">Luas Tanah</th>
-          <th>Aksi</th>
-        </tr>
-        <tr v-for="(data, index) in dataRumah.data" :key="index">
-          <td>{{ index+1 }}</td>
-          <td>{{ data.name }}</td>
-          <td>Rp {{ data.price }}</td>
-          <td>{{ data.bed }}</td>
-          <td>{{ data.bath }}</td>
-          <td>Lt {{ data.land }}</td>
-          <td id="aksi">
-            <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
-            <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')" class="btn btn-red-delete"><i class="fi fi-sr-trash"></i></button>
-          </td>
-        </tr>
-      </table>
+    <div v-if="dataRumah != null">
+      Total data <b>{{ dataRumah.data.length }}</b>
+      <div class="data-container">
+        <table>
+          <tr>
+            <th id="no">No</th>
+            <th id="type">Type Rumah <i class="fi fi-rs-apps-sort" :id="orderByName ? 'active' : 0"
+                @click.prevent="onOrder" title="Urutkan berdasar abjad"></i></th>
+            <th id="price">Harga Rumah</th>
+            <th id="spec">Kamar Tidur</th>
+            <th id="spec">Kamar Mandi</th>
+            <th id="spec">Luas Tanah</th>
+            <th>Aksi</th>
+          </tr>
+          <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName)" :key="index">
+            <td>{{ index+1 }}</td>
+            <td>{{ data.name }}</td>
+            <td>Rp {{ data.price }}</td>
+            <td>{{ data.bed }} Kamar Tidur</td>
+            <td>{{ data.bath }} Kamar Mandi</td>
+            <td>Lt {{ data.land }}</td>
+            <td id="aksi">
+              <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
+              <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')"
+                class="btn btn-red-delete"><i class="fi fi-sr-trash"></i></button>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
     <!-- Modal Data -->
     <modal v-if="modal && modalData != null">
       <div v-for="(data, index) in modalData.data" :key="index">
         <button class="btn btn-close" @click.prevent="onClose">
-            <i class="fi fi-ss-cross"></i>
+          <i class="fi fi-ss-cross"></i>
         </button>
         <h3>Edit Data</h3>
         <br>
         <form @submit.prevent="onSave">
           <div class="group">
-            <input type="text" name="type-rumah" :value="data.name" @input="data.name = $event.target.value" required autocomplete="off">
+            <input type="text" name="type-rumah" :value="data.name" @input="data.name = $event.target.value" required
+              autocomplete="off">
             <span class="highlight"></span>
             <span class="bar"></span>
+            <span class="icon"><i class="fi fi-sr-home-location"></i></span>
             <label>Type Rumah</label>
           </div>
           <div class="group">
-            <input type="text" name="url-image" :value="data.url_img" @input="data.url_img = $event.target.value" required autocomplete="off">
+            <input type="text" name="url-image" :value="data.url_img" @input="data.url_img = $event.target.value"
+              required autocomplete="off">
             <span class="highlight"></span>
             <span class="bar"></span>
+            <span class="icon"><i class="fi fi-sr-picture"></i></span>
             <label>URL Gambar</label>
           </div>
           <div class="group">
-            <input type="text" name="price" :value="data.price" @input="data.price = $event.target.value" required autocomplete="off">
+            <input type="text" name="price" :value="data.price" @input="data.price = $event.target.value" required
+              autocomplete="off">
             <span class="highlight"></span>
             <span class="bar"></span>
+            <span class="icon"><i class="fi fi-sr-label"></i></span>
             <label>Harga</label>
           </div>
           <div class="spec">
-            <div class="group" >
-                <input type="number" name="bed" :value="data.bed" @input="data.bed = $event.target.value" required autocomplete="off" style="width: 80px">
-                <span class="highlight" style="width: 80px"></span>
-                <span class="bar" style="width: 80px"></span>
-                <label>Kamar Tidur</label>
+            <div class="group">
+              <input type="number" name="bed" :value="data.bed" @input="data.bed = $event.target.value" required
+                autocomplete="off" style="width: 80px">
+              <span class="highlight" style="width: 80px"></span>
+              <span class="bar" style="width: 80px"></span>
+              <span class="icon"><img src="~/assets/img/svg/bed.svg" style="filter: saturate(10%)"/></span>
+              <label>Kamar Tidur</label>
             </div>
-            <div class="group" >
-                <input type="number" name="bath" :value="data.bath" @input="data.bath = $event.target.value" required autocomplete="off" style="width: 80px">
-                <span class="highlight" style="width: 80px"></span>
-                <span class="bar" style="width: 80px"></span>
-                <label>Kamar Mandi</label>
+            <div class="group">
+              <input type="number" name="bath" :value="data.bath" @input="data.bath = $event.target.value" required
+                autocomplete="off" style="width: 80px">
+              <span class="highlight" style="width: 80px"></span>
+              <span class="bar" style="width: 80px"></span>
+              <span class="icon"><img src="~/assets/img/svg/bath.svg" style="filter: saturate(10%)"/></span>
+              <label>Kamar Mandi</label>
             </div>
-            <div class="group" >
-                <input type="text" name="bath" :value="data.land" @input="data.land = $event.target.value" required autocomplete="off" style="width: 80px">
-                <span class="highlight" style="width: 80px"></span>
-                <span class="bar" style="width: 80px"></span>
-                <label>Luas Tanah</label>
+            <div class="group">
+              <input type="text" name="bath" :value="data.land" @input="data.land = $event.target.value" required
+                autocomplete="off" style="width: 80px">
+              <span class="highlight" style="width: 80px"></span>
+              <span class="bar" style="width: 80px"></span>
+              <span class="icon"><img src="~/assets/img/svg/floor.svg" style="filter: saturate(10%)"/></span>
+              <label>Luas Tanah</label>
             </div>
           </div>
-          <button class="btn btn-blue">Simpan <i class="fi fi-sr-check"></i></button>
+          <button class="btn btn-blue"><i class="fi fi-sr-disk"></i> Simpan</button>
         </form>
       </div>
     </modal>
@@ -82,6 +99,7 @@
 </template>
 
 <script>
+    import Vue2Filters from 'vue2-filters'
     import axios from 'axios'
     import Button from '@/components/button'
     import Modal from '@/components/modal'
@@ -94,31 +112,42 @@
                 modal: false,
                 modalData: null,
                 modalCallBack: null,
+                orderByName: false,
             }
         },
+        mixins: [Vue2Filters.mixin],
         components: {
             Button,
             Modal,
         },
+        computed: {
+            sortByName: function() {
+                if (this.orderByName) {
+                    return 'name'
+                } else {
+                    return ''
+                }
+            }
+        },
         methods: {
             async getDataRumah() {
-                 await axios
+                await axios
                     .post(`${this.$conf.url_api}?func=list_rumah`)
                     .then(response => {
                         this.dataRumah = response.data
-                 })
-                .catch(error => {
-                    console.log(error)
-                })
-                .finally(() => {
-                    /*if (this.dataRumah.status == 1) {
-                        this.$toast.info("Berhasil Meload Data")
-                    }*/
-                })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                    .finally(() => {
+                        /*if (this.dataRumah.status == 1) {
+                            this.$toast.info("Berhasil Meload Data")
+                        }*/
+                    })
             },
             async onEdit(id) {
                 this.modal = true;
-                    await axios
+                await axios
                     .post(`${this.$conf.url_api}?func=get_rumah`, {
                         id
                     })
@@ -161,6 +190,13 @@
                         }
                         this.onClose()
                     })
+            },
+            onOrder() {
+                if (this.orderByName) {
+                    return this.orderByName = false
+                } else {
+                    return this.orderByName = true
+                }
             }
         },
         async mounted() {
@@ -192,6 +228,20 @@
     
     .listrumah table th#type {
         padding: 1em 7em 1em 0.5em;
+        display: grid;
+        align-items: center;
+    }
+    
+    .listrumah table th#type i {
+        padding: 0.5em;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+    
+    .listrumah table th#type i:hover,
+    i#active {
+        background-color: var(--blue-dark);
     }
     
     .listrumah table th#price {
@@ -234,7 +284,7 @@
         padding: 1em;
         border-radius: 8px;
         display: flex;
-        gap: 20px;
+        gap: 10px;
         align-items: center;
     }
     

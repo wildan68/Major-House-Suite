@@ -9,12 +9,14 @@
           <input type="text" name="username" required @input="username = $event.target.value" autocomplete="off">
           <span class="highlight"></span>
           <span class="bar"></span>
+          <span class="icon"><i class="fi fi-sr-user"></i></span>
           <label>Username</label>
         </div>
         <div class="group">
           <input type="password" name="password" required @input="password = $event.target.value" autocomplete="off">
           <span class="highlight"></span>
           <span class="bar"></span>
+          <span class="icon"><i class="fi fi-sr-lock"></i></span>
           <label>Password</label>
         </div>
         <button class="loginSubmit">

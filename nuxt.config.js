@@ -27,6 +27,7 @@ module.exports = {
         { src: './plugins/config.js' },
         { src: './plugins/toast.js', ssr: false },
         { src: './plugins/cloudinary.js', ssr: false },
+        { src: './plugins/vue-filter.js', ssr: false }
     ],
     css: ['swiper/swiper-bundle.min.css'],
     /*

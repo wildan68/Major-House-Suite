@@ -47,7 +47,7 @@ export default {
     }
     @media (max-width: 768px) {
         .modal {
-        width: 70%;
+            width: 70%;
         }
     }
 </style>
