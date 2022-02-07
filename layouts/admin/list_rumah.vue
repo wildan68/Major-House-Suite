@@ -320,8 +320,6 @@
         .listrumah .data-container {
             overflow-x: scroll;
             width: 360px;
-            justify-content: center;
-            display: grid;
         }
         .listrumah table {
             width: 1000px;
