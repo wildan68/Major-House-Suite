@@ -4,32 +4,32 @@
     <br>
     <div v-if="dataRumah != null">
       Total data <b>{{ dataRumah.data.length }}</b>
-      <div class="data-container">
-        <table>
-          <tr>
-            <th id="no">No</th>
-            <th id="type">Type Rumah <i class="fi fi-rs-apps-sort" :id="orderByName ? 'active' : 0"
-                @click.prevent="onOrder" title="Urutkan berdasar abjad"></i></th>
-            <th id="price">Harga Rumah</th>
-            <th id="spec">Kamar Tidur</th>
-            <th id="spec">Kamar Mandi</th>
-            <th id="spec">Luas Tanah</th>
-            <th>Aksi</th>
-          </tr>
-          <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName)" :key="index">
-            <td>{{ index+1 }}</td>
-            <td>{{ data.name }}</td>
-            <td>Rp {{ data.price }}</td>
-            <td>{{ data.bed }} Kamar Tidur</td>
-            <td>{{ data.bath }} Kamar Mandi</td>
-            <td>Lt {{ data.land }}</td>
-            <td id="aksi">
-              <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
-              <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')"
-                class="btn btn-red-delete"><i class="fi fi-sr-trash"></i></button>
-            </td>
-          </tr>
-        </table>
+        <div class="data-container">
+          <table>
+            <tr>
+              <th id="no">No</th>
+              <th id="type">Type Rumah <i class="fi fi-rs-apps-sort" :id="orderByName ? 'active' : 0"
+                  @click.prevent="onOrder" title="Urutkan berdasar abjad"></i></th>
+              <th id="price">Harga Rumah</th>
+              <th id="spec">Kamar Tidur</th>
+              <th id="spec">Kamar Mandi</th>
+              <th id="spec">Luas Tanah</th>
+              <th>Aksi</th>
+            </tr>
+            <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName)" :key="index">
+              <td>{{ index+1 }}</td>
+              <td>{{ data.name }}</td>
+              <td>Rp {{ data.price }}</td>
+              <td>{{ data.bed }} Kamar Tidur</td>
+              <td>{{ data.bath }} Kamar Mandi</td>
+              <td>Lt {{ data.land }}</td>
+              <td id="aksi">
+                <button @click.prevent="onEdit(data.id)" class="btn btn-blue"><i class="fi fi-sr-edit"></i></button>
+                <button @click.prevent="$toast.info('Coming Soon ya ges ya, aing cape mikir')"
+                  class="btn btn-red-delete"><i class="fi fi-sr-trash"></i></button>
+              </td>
+            </tr>
+          </table>
       </div>
     </div>
     <!-- Modal Data -->
@@ -71,7 +71,7 @@
                 autocomplete="off" style="width: 80px">
               <span class="highlight" style="width: 80px"></span>
               <span class="bar" style="width: 80px"></span>
-              <span class="icon"><img src="~/assets/img/svg/bed.svg" style="filter: saturate(10%)"/></span>
+              <span class="icon"><img src="~/assets/img/svg/bed.svg" style="filter: saturate(10%)" /></span>
               <label>Kamar Tidur</label>
             </div>
             <div class="group">
@@ -79,7 +79,7 @@
                 autocomplete="off" style="width: 80px">
               <span class="highlight" style="width: 80px"></span>
               <span class="bar" style="width: 80px"></span>
-              <span class="icon"><img src="~/assets/img/svg/bath.svg" style="filter: saturate(10%)"/></span>
+              <span class="icon"><img src="~/assets/img/svg/bath.svg" style="filter: saturate(10%)" /></span>
               <label>Kamar Mandi</label>
             </div>
             <div class="group">
@@ -87,7 +87,7 @@
                 autocomplete="off" style="width: 80px">
               <span class="highlight" style="width: 80px"></span>
               <span class="bar" style="width: 80px"></span>
-              <span class="icon"><img src="~/assets/img/svg/floor.svg" style="filter: saturate(10%)"/></span>
+              <span class="icon"><img src="~/assets/img/svg/floor.svg" style="filter: saturate(10%)" /></span>
               <label>Luas Tanah</label>
             </div>
           </div>
@@ -278,6 +278,7 @@
     .listrumah .spec {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
     }
     
     .listrumah .btn {
@@ -317,8 +318,10 @@
     
     @media (max-width: 768px) {
         .listrumah .data-container {
-            overflow: scroll;
-            width: 320px;
+            overflow-x: scroll;
+            width: 360px;
+            justify-content: center;
+            display: grid;
         }
         .listrumah table {
             width: 1000px;
