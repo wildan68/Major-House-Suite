@@ -16,7 +16,7 @@
               <th id="spec">Luas Tanah</th>
               <th>Aksi</th>
             </tr>
-            <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName).slice(0, ($route.query.p * 5))" :key="index">
+            <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName).slice(($route.query.p * 5) - 5, ($route.query.p * 5))" :key="index">
               <td>{{ index+1 }}</td>
               <td>{{ data.name }}</td>
               <td>Rp {{ data.price }}</td>
