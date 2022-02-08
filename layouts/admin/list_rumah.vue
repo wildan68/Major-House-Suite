@@ -16,7 +16,7 @@
               <th id="spec">Luas Tanah</th>
               <th>Aksi</th>
             </tr>
-            <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName)" :key="index">
+            <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName).slice(0, ($route.query.p * 5))" :key="index">
               <td>{{ index+1 }}</td>
               <td>{{ data.name }}</td>
               <td>Rp {{ data.price }}</td>
@@ -30,6 +30,11 @@
               </td>
             </tr>
           </table>
+      </div>
+      <div class="pagging">
+          <button class="pagging-list" v-for="index in parseInt(dataRumah.data.length / 4)" :key="index" :id="$route.query.p == index ? 'active' : 0" @click.prevent="$router.push(`/admin?f=list_rumah&p=${index}`)">
+              {{ index }}
+          </button>
       </div>
     </div>
     <!-- Modal Data -->
@@ -201,6 +206,9 @@
         },
         async mounted() {
             this.getDataRumah()
+            if (this.$route.query.p == null) {
+                this.$router.push('/admin?f=list_rumah&p=1')
+            }
         }
     }
 </script>
@@ -319,6 +327,21 @@
         background-color: var(--white-light);
     }
     
+    .listrumah .pagging {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .listrumah .pagging-list {
+        padding: 1em 1.5em 1em 1.5em;
+        background-color: var(--gray);
+        font-weight: 600;
+    }
+    .listrumah .pagging-list#active {
+        background-color: var(--blue);
+        color: var(--white);
+    }
     @media (max-width: 768px) {
         .listrumah .data-container {
             overflow-x: scroll;
