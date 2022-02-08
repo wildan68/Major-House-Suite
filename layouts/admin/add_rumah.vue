@@ -99,6 +99,11 @@
 </script>
 
 <style scoped>
+    .addrumah {
+        padding: 2em;
+        background-color: var(--white);
+        border-radius: 22px;
+    }
     .addrumah form .spec {
         display: flex;
         gap: 10px;

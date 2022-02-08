@@ -208,6 +208,9 @@
 <style scoped>
     .listrumah {
         position: relative;
+        background-color: var(--white);
+        padding: 2em;
+        border-radius: 22px;
     }
     
     .listrumah table {
@@ -319,7 +322,7 @@
     @media (max-width: 768px) {
         .listrumah .data-container {
             overflow-x: scroll;
-            width: 360px;
+            width: 340px;
         }
         .listrumah table {
             width: 1000px;

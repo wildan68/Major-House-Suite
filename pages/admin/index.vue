@@ -104,7 +104,7 @@
 
 <style scoped>
     .content-admin {
-        padding: 5em 2em 0 2em;
+        padding: 5em 2em 5em 2em;
         margin-left: 15em;
     }
     .toggle-sidebar {
@@ -117,9 +117,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        left: 0;
     }
     @media (max-width: 768px) {
         .content-admin {
+            padding: 5em 0 5em 0;
             margin-left: 0;
         }
     }
