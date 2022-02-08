@@ -17,7 +17,7 @@
               <th>Aksi</th>
             </tr>
             <tr v-for="(data, index) in orderBy(dataRumah.data, sortByName).slice(($route.query.p * 5) - 5, ($route.query.p * 5))" :key="index">
-              <td>{{ index+1 }}</td>
+              <td>{{ dataIndex(index+1) }}</td>
               <td>{{ data.name }}</td>
               <td>Rp {{ data.price }}</td>
               <td>{{ data.bed }} Kamar Tidur</td>
@@ -132,7 +132,7 @@
                 } else {
                     return ''
                 }
-            }
+            },
         },
         methods: {
             async getDataRumah() {
@@ -201,6 +201,14 @@
                     return this.orderByName = false
                 } else {
                     return this.orderByName = true
+                }
+            },
+            dataIndex(i) {
+                if (this.$route.query.p > 1) {
+                    let x = (5 * this.$route.query.p) + i
+                    return x - 5
+                } else {
+                    return i
                 }
             }
         },
@@ -338,10 +346,12 @@
         background-color: var(--gray);
         font-weight: 600;
     }
+    
     .listrumah .pagging-list#active {
         background-color: var(--blue);
         color: var(--white);
     }
+    
     @media (max-width: 768px) {
         .listrumah .data-container {
             overflow-x: scroll;
