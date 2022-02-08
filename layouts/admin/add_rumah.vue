@@ -143,4 +143,12 @@
     .addrumah .btn.btn-close:hover {
         background-color: var(--white-light);
     }
+    @media (max-width: 768px) {
+        .addrumah {
+            width: 80%;
+        }
+        .addrumah form .spec {
+            flex-wrap: wrap;
+        }
+    }
 </style>

@@ -106,6 +106,8 @@
     .content-admin {
         padding: 5em 2em 5em 2em;
         margin-left: 15em;
+        display: flex;
+        justify-content: center;
     }
     .toggle-sidebar {
         position: absolute;
